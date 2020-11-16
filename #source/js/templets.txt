@@ -1,0 +1,48 @@
+
+
+// когда дисплей изменяет размер перезагружает страницу
+$(window).resize(function () {
+    window.location.reload();
+});
+
+// %custom-scrollbar {
+    // ::-webkit-scrollbar the scrollbar.
+    // ::-webkit-scrollbar-button the buttons on the scrollbar (arrows pointing upwards and downwards).
+    // ::-webkit-scrollbar-thumb the draggable scrolling handle.
+    // ::-webkit-scrollbar-track the track (progress bar) of the scrollbar.
+    // ::-webkit-scrollbar-track-piece the track (progress bar) NOT covered by the handle.
+    // ::-webkit-scrollbar-corner the bottom corner of the scrollbar, where both horizontal and vertical scrollbars meet.
+    // ::-webkit-resizer the draggable resizing handle that appears at the bottom corner of some elements.
+// }
+
+@media only screen and (max-width: 600px) {}
+@media only screen and (orientation: landscape) {}
+@media only screen and (orientation: portrat) {}
+
+       <picture>
+            <source data-srcset="img/2_block/Background-1920.webp"
+                    srcset="#"
+                    type="image/webp"
+                    media="(min-width: 1440px)">
+            <source data-srcset="img/2_block/Background-1920.jpg"
+                    srcset="#"
+                    type="image/jpeg"
+                    media="(min-width: 1440px)">
+            <source data-srcset="img/2_block/Background-1920.jp2"
+                    srcset="#"
+                    type="image/jp2"
+                    media="(min-width: 1440px)">
+            <img class="lazyload"
+                 data-sizes="auto"
+                 src="#"
+                 alt="" />
+        </picture>
+
+        <picture>
+            <source srcset="img/1_block/bg-1.webp"
+                    type="image/webp">
+            <source srcset="img/1_block/bg-1.jp2"
+                    type="image/jp2">
+            <img src="#"
+                 alt="">
+        </picture>

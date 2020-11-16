@@ -1,0 +1,184 @@
+.header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    .header-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        width: 100%;
+        .bg-1 {
+            position: relative;
+            @include adaptiveWidth(1049, 180);
+            @include adaptiveHeight(1001, 550);
+            background-color: #000000;
+            img {
+                @include ibg;
+            }
+        }
+        .bg-2 {
+            position: relative;
+            @include adaptiveWidth(903, 140);
+            @include adaptiveHeight(1043, 570);
+            background-color: #000000;
+            img {
+                @include ibg;
+            }
+        }
+    }
+    .container {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        .page-number {
+            position: absolute;
+            transform: rotate(90deg);
+            @include adaptiveMarginTop(410, 205);
+            @include adaptiveLeft(-120, -120);
+            display: inline-block;
+            ul {
+                display: flex;
+                align-items: center;
+
+                li:nth-child(1) {
+                    width: 51px;
+                    height: 4px;
+                    background-color: #c0af91;
+                    margin: 0 10px 0 0;
+                }
+                li:nth-child(2) {
+                    color: #bea67c;
+                    font-family: "Proxima Nova";
+                    @include adaptiveFontSize(90, 30);
+                    font-weight: 700;
+                    text-align: left;
+                    text-transform: uppercase;
+                    letter-spacing: 9px;
+                    margin: 0 40px 0 0;
+                }
+                li:nth-child(3) {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    background-color: #bea67c;
+                    margin: 0 20px 0 0;
+                }
+                li:nth-child(4),
+                li:nth-child(5),
+                li:nth-child(6) {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    background-color: #303030;
+                    margin: 0 20px 0 0;
+                }
+            }
+        }
+        @media only screen and (max-width: 425px) {
+            .page-number {
+                display: none;
+            }
+        }
+
+        .wooder {
+            display: inline-flex;
+            flex-direction: column;
+            @include adaptiveMarginTop(350, 150);
+
+            .title {
+                color: #bea67c;
+                font-family: "Proxima Nova";
+                @include adaptiveFontSize(100, 30);
+                font-weight: 700;
+                text-align: left;
+                text-transform: uppercase;
+                letter-spacing: 20px;
+                @include adaptiveMargin(0, 0, 60, 0, 20);
+                margin-right: -20px;
+            }
+            .btn {
+                align-self: start;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid #ffffff;
+                @include adaptivePadding(25, 0, 25, 0, 15);
+                @include adaptivePadding(0, 80, 0, 80, 30);
+                @include adaptiveMargin(0, 0, 60, 0, 20);
+                span {
+                    display: inline-block;
+                    color: #ffffff;
+                    font-family: "Proxima Nova";
+                    font-size: 14px;
+                    font-weight: 700;
+                    text-align: left;
+                    text-transform: uppercase;
+                    letter-spacing: 2.8px;
+                    margin: 0 10px 0 0;
+                }
+                img {
+                    display: inline-block;
+                }
+            }
+            .scroll {
+                display: flex;
+                flex-direction: column;
+                align-self: start;
+                width: 20px;
+                @include adaptiveMargin(0, 0, 184, 0, 81);
+                img {
+                    margin: 0 0 25px 0;
+                }
+                span {
+                    display: inline-block;
+                    transform: rotate(90deg);
+                    opacity: 0.1;
+                    color: #ffffff;
+                    font-family: "Proxima Nova";
+                    font-size: 14px;
+                    font-weight: 700;
+                    line-height: 70px;
+                    text-align: left;
+                    text-transform: uppercase;
+                    letter-spacing: 2.8px;
+                }
+            }
+        }
+        .decor {
+            position: absolute;
+            transform: rotate(90deg);
+            @include adaptiveMarginTop(510, 260);
+            @include adaptiveRight(-160, -100);
+            display: inline-block;
+            span {
+                opacity: 0.2;
+                color: #bea67c;
+                font-family: "Proxima Nova";
+                @include adaptiveFontSize(24, 14);
+                font-weight: 700;
+                text-align: left;
+                text-transform: uppercase;
+                letter-spacing: 4.81px;
+            }
+        }
+        @media only screen and (max-width: 425px) {
+            .decor {
+                display: none;
+            }
+        }
+    }
+    .sotial {
+        img {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            width: 23px;
+            height: 25px;
+            opacity: 0.5;
+        }
+    }
+}

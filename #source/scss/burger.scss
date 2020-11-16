@@ -1,0 +1,386 @@
+$text-color: #ffffff81;
+$border-color: #ff3324;
+$bg-color: #040311;
+
+%hover-style {
+    user-select: none;
+    @extend %border-style;
+    &:hover {
+        box-shadow: inset 0 0 0 2px $border-color, inset 0 0 5px 5px $text-color;
+        transform: scale(1.1);
+    }
+    &:active {
+        transform: scale(1);
+        box-shadow: inset 0 0 0 3px $border-color, inset 0 0 10px 10px $text-color, 0 0 5px 5px $text-color;
+    }
+}
+%border-style {
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 2px $border-color, inset 0 0 0 3px $text-color;
+    background-color: $bg-color;
+}
+%animation-style {
+    animation-duration: 1s;
+    transition: transform 300ms linear;
+}
+
+.menu-wrapper {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+    .menu-burger {
+        .burger {
+            @include adaptiveTop(50, 10);
+            @include adaptiveRight(50, 10);
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 10px;
+            transition-duration: 0.3s;
+            .x-button {
+                order: 1;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+
+                li {
+                    background-color: $text-color;
+                    width: 30px;
+                    height: 3px;
+                    transition-duration: 0.2s;
+                }
+                li:nth-child(1) {
+                }
+                li:nth-child(2) {
+                }
+                li:nth-child(3) {
+                }
+            }
+            .x-button.active {
+                li:nth-child(1) {
+                    transform: translate(0%, 450%) rotate(45deg);
+                }
+                li:nth-child(2) {
+                    opacity: 0;
+                }
+                li:nth-child(3) {
+                    transform: translate(0%, -450%) rotate(-45deg);
+                }
+            }
+            .title {
+                margin: 0 0 0 10px;
+                order: 2;
+                color: $text-color;
+                font-family: "Proxima Nova";
+                @include adaptiveFontSize(15, 10);
+                font-weight: 700;
+                text-align: left;
+                text-transform: uppercase;
+                letter-spacing: 0.38px;
+                @media only screen and (max-width: 424px) {
+                    display: none;
+                }
+            }
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            transform: translateX(-100%);
+            @extend %border-style;
+            @extend %animation-style;
+            padding: 30px;
+            overflow: hidden;
+
+            .menu-x-button {
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                padding: 10px;
+                transition-duration: 0.3s;
+                width: 40px;
+                height: 40px;
+                flex-direction: column;
+                justify-content: space-between;
+
+                li {
+                    background-color: $text-color;
+                    width: 30px;
+                    height: 3px;
+                    transition-duration: 0.2s;
+                }
+                li:nth-child(1) {
+                }
+                li:nth-child(2) {
+                }
+                li:nth-child(3) {
+                }
+            }
+            .menu-x-button.active {
+                li:nth-child(1) {
+                    transform: translate(0%, 290%) rotate(45deg);
+                }
+                li:nth-child(2) {
+                    opacity: 0;
+                }
+                li:nth-child(3) {
+                    transform: translate(0%, -290%) rotate(-45deg);
+                }
+            }
+
+            .list {
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+                padding: 20px;
+
+                .title {
+                    color: $text-color;
+                    font-size: 25px;
+                    font-weight: 700;
+                    text-align: center;
+                    pointer-events: none;
+                }
+
+                li {
+                    border-radius: 10px;
+                    margin: 0 0 20px 0;
+                    padding: 10px;
+                    color: $text-color;
+                    font-size: 15px;
+                    font-weight: 400;
+                    transition-duration: 0.3s;
+                    @extend %hover-style;
+                }
+                .lang {
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    .current-lang {
+                        color: $text-color;
+                        text-transform: uppercase;
+                        font-family: "Proxima Nova";
+                        font-size: 15px;
+                        font-weight: 700;
+                        text-align: left;
+                        letter-spacing: 0.75px;
+                        margin: 0 5px 0 0;
+                    }
+                    &::after {
+                        content: "";
+                        display: block;
+                        width: 0;
+                        height: 0;
+                        @include triengel-up(3, 3, 5, #a9946e);
+                        transition-duration: 0.3s;
+                    }
+                    .lang-list {
+                        display: flex;
+                        position: absolute;
+                        top: 50px;
+                        transform-origin: top center;
+                        transform: scaleY(0);
+                        transition-duration: 0.1s;
+                        li {
+                            color: $text-color;
+                            text-transform: uppercase;
+                            font-family: "Proxima Nova";
+                            font-size: 15px;
+                            font-weight: 700;
+                            text-align: left;
+                            letter-spacing: 0.75px;
+                            margin: 0 5px 0 0;
+                        }
+                        & li:last-child {
+                            margin: 0;
+                        }
+                    }
+                    .lang-list.active {
+                        transform: scale(1);
+                    }
+                }
+                .lang.active {
+                    &::after {
+                        border-top: none;
+                        @include triengel-down(3, 3, 5, #a9946e);
+                    }
+                }
+            }
+        }
+
+        .menu.active {
+            transform: none;
+        }
+    }
+
+    .maine-menu {
+        display: flex;
+        align-items: center;
+        a {
+            li {
+                color: $text-color;
+                font-family: "Proxima Nova";
+                @include adaptiveFontSize(15, 10);
+                font-weight: 700;
+                text-align: left;
+                text-transform: uppercase;
+                letter-spacing: 0.38px;
+                @include adaptiveMargin(0, 100, 0, 0, 10);
+            }
+        }
+
+        a:last-child {
+            li {
+                margin: 0;
+            }
+        }
+        .title {
+            li {
+                color: #ffffff;
+                font-family: "Proxima Nova";
+                @include adaptiveFontSize(36, 26);
+                font-weight: 700;
+                text-align: center;
+                text-transform: uppercase;
+                letter-spacing: 10.8px;
+                @include adaptiveMargin(0, 100, 0, 130, -20);
+                @media only screen and (max-width: 767px) {
+                    margin: 0;
+                }
+            }
+            @media only screen and (max-width: 424px) {
+                @include adaptiveMargin(0, 880, 0, 0, 50);
+            }
+        }
+        @media only screen and (max-width: 767px) {
+            .title {
+                li {
+                    margin: 0;
+                }
+            }
+            .item-1 {
+                display: none;
+            }
+            .item-2 {
+                display: none;
+            }
+            .item-3 {
+                display: none;
+            }
+        }
+    }
+
+    .aditional-menu {
+        display: flex;
+        margin: 0 10px 0 0;
+        justify-content: center;
+        align-items: center;
+
+        a {
+            color: $text-color;
+            font-family: "Proxima Nova";
+            font-size: 15px;
+            font-weight: 700;
+            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 0.38px;
+            margin: 0 25px 0 0;
+        }
+        a:last-child {
+            margin: 0;
+        }
+        .info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid $text-color;
+            border-radius: 50%;
+            width: 23px;
+            height: 23px;
+            margin: 0 10px;
+            span {
+                color: $text-color;
+                font-size: 15px;
+                text-transform: lowercase;
+            }
+        }
+        .lang {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            .current-lang {
+                color: $text-color;
+                text-transform: uppercase;
+                font-family: "Proxima Nova";
+                font-size: 15px;
+                font-weight: 700;
+                text-align: left;
+                letter-spacing: 0.75px;
+                margin: 0 5px 0 0;
+            }
+            &::after {
+                content: "";
+                display: block;
+                width: 0;
+                height: 0;
+                @include triengel-up(3, 3, 5, #a9946e);
+                transition-duration: 0.3s;
+            }
+            .lang-list {
+                position: absolute;
+                top: 20px;
+                left: 0;
+                transform-origin: top center;
+                transform: scaleY(0);
+                transition-duration: 0.1s;
+                li {
+                    color: $text-color;
+                    text-transform: uppercase;
+                    font-family: "Proxima Nova";
+                    font-size: 15px;
+                    font-weight: 700;
+                    text-align: left;
+                    letter-spacing: 0.75px;
+                    margin: 0 0 5px 0;
+                }
+                & li:last-child {
+                    margin: 0;
+                }
+            }
+            .lang-list.active {
+                transform: scale(1);
+            }
+        }
+        .lang.active {
+            &::after {
+                border-top: none;
+                @include triengel-down(3, 3, 5, #a9946e);
+            }
+        }
+        @media only screen and (max-width: 424px) {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,152 @@
+.fifth-block {
+    padding: 130px 0;
+    overflow: hidden;
+    .container {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        .text-block {
+            order: 2;
+            align-self: center;
+            width: 45%;
+            padding: 3% 0 3% 14%;
+            margin: 0 2% 0 -80px;
+
+            .title {
+                position: relative;
+                display: flex;
+                align-items: center;
+                color: #010101;
+                font-family: "Proxima Nova";
+                @include adaptiveFontSize(48, 26);
+                font-weight: 700;
+                text-align: left;
+                text-transform: uppercase;
+                letter-spacing: 3.36px;
+                margin: 0 0 50px 0;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    right: 100%;
+                    width: 151px;
+                    height: 1px;
+                    background-color: black;
+                    margin: 0 10px 0 0;
+                }
+            }
+            .text {
+                position: relative;
+                display: flex;
+                align-items: flex-start;
+                color: #464646;
+                font-family: "Proxima Nova";
+                font-size: 15px;
+                font-weight: 400;
+                line-height: 25px;
+                text-align: left;
+                letter-spacing: 0.38px;
+                margin: 0 0 35px 0;
+                max-width: 331px;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 12px;
+                    right: 100%;
+                    display: inline-block;
+                    width: 44px;
+                    height: 4px;
+                    background-color: #bea67c;
+                    margin: 0 10px 0 0;
+                }
+            }
+            .link {
+                display: inline-flex;
+                align-items: center;
+                position: relative;
+                color: #000000;
+                font-family: "Proxima Nova";
+                font-size: 14px;
+                font-weight: 700;
+                text-align: left;
+                text-transform: uppercase;
+                letter-spacing: 2.8px;
+                padding: 0 0 5px 0;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    display: inline-block;
+                    bottom: 0;
+                    left: 0;
+                    width: 44px;
+                    height: 2px;
+                    background-color: #a9946e;
+                }
+                img {
+                    margin: 0 0 0 10px;
+                }
+            }
+        }
+        .img {
+            order: 1;
+            width: 55%;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.137);
+            }
+        }
+
+        .a {
+            position: absolute;
+            bottom: 90%;
+            left: 85%;
+            opacity: 0.07;
+            color: #bea67c;
+            font-family: "Proxima Nova";
+            @include adaptiveFontSize(396, 96);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .furniture {
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+            left: -35%;
+            opacity: 0.2;
+            color: #d0d0d0;
+            font-family: "Proxima Nova";
+            @include adaptiveFontSize(169, 69);
+            white-space: nowrap;
+            font-weight: 700;
+            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 3.36px;
+        }
+        @media only screen and (max-width: 767px) {
+            flex-direction: column;
+            .text-block {
+                order: 1;
+                width: 100%;
+                margin: 0 2% 0 0;
+            }
+            .img {
+                order: 2;
+                width: 95%;
+                margin: 0 auto;
+            }
+
+            .a {
+                display: none;
+            }
+            .furniture {
+                display: none;
+            }
+        }
+    }
+    @media only screen and (max-width: 767px) {
+        padding: 30px 0 0 0;
+    }
+}

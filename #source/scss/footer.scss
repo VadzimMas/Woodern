@@ -1,0 +1,87 @@
+.footer {
+    background-color: #050505;
+    padding: 15px 0;
+    .container {
+        position: relative;
+        max-width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        .year {
+            color: #464646;
+            font-family: "Proxima Nova";
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 25px;
+            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 0.38px;
+        }
+        .wooder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ffffff;
+            font-family: "Proxima Nova";
+            @include adaptiveFontSize(38, 28);
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            font-style: normal;
+            letter-spacing: 10.8px;
+            &::after {
+                content: "";
+                position: absolute;
+                display: inline-block;
+                top: 50%;
+                left: 20%;
+                transform: translate(0, -50%);
+                width: 58px;
+                height: 4px;
+                background-color: #bea67c;
+            }
+        }
+        .disighn {
+            span {
+                font-family: "Proxima Nova";
+                font-size: 15px;
+                font-weight: 400;
+                line-height: 25px;
+                text-align: left;
+                color: #464646;
+                letter-spacing: 0.38px;
+            }
+            color: #7d7d7d;
+            font-family: "Proxima Nova";
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 25px;
+            text-align: left;
+            letter-spacing: 0.38px;
+        }
+    }
+}
+@media only screen and (max-width: 767px) {
+    .footer {
+        .container {
+            flex-direction: column;
+            .year {
+                order: 2;
+            }
+            .wooder {
+                order: 1;
+                position: relative;
+                top: auto;
+                left: auto;
+                transform: none;
+            }
+            .disighn {
+                order: 3;
+                span {
+                }
+            }
+        }
+    }
+}

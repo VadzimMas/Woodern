@@ -1,0 +1,217 @@
+$modelWidth: 1920;
+$phoneWidth: 320;
+
+// adaptive sizes for fonts padding margin width height fixed positions wherever you want
+
+@mixin adaptiveBoxShadow($mx, $my, $ms, $mr, $px, $py, $ps, $pr, $color) {
+  $mx: calc((((#{$mx - $px}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$px}px);
+
+  $my: calc((((#{$my - $py}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$py}px);
+
+  $ms: calc((((#{$ms - $ps}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$ps}px);
+
+  $mr: calc((((#{$mr - $pr}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$pr}px);
+
+  box-shadow: $mx $my $ms $mr $color;
+}
+
+@mixin adaptiveTop($modelSize, $phoneSize) {
+  top: calc(
+    (((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px
+  );
+}
+
+@mixin adaptiveLeft($modelSize, $phoneSize) {
+  left: calc(
+    (((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px
+  );
+}
+
+@mixin adaptiveRight($modelSize, $phoneSize) {
+  right: calc(
+    (((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px
+  );
+}
+
+@mixin adaptiveBottom($modelSize, $phoneSize) {
+  bottom: calc(
+    (((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px
+  );
+}
+
+@mixin adaptiveWidth($modelSize, $phoneSize) {
+  width: calc(
+    (((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px
+  );
+}
+
+@mixin adaptiveMax-Width($modelSize, $phoneSize) {
+  max-width: calc(
+    (((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px
+  );
+}
+
+@mixin adaptiveHeight($modelSize, $phoneSize) {
+  height: calc(
+    (((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px
+  );
+}
+
+@mixin adaptiveFontSize($modelSize, $phoneSize) {
+  font-size: calc(
+    (((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px
+  );
+}
+
+@mixin adaptiveLetterSpacing($modelSize, $phoneSize) {
+  letter-spacing: calc(
+    (((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px
+  );
+}
+
+@mixin adaptiveLineHeight($modelSize, $phoneSize) {
+  line-height: calc(
+    (((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px
+  );
+}
+
+@mixin adaptiveMarginBottom($modelSize, $phoneSize) {
+  margin-bottom: calc(
+    (((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px
+  );
+}
+
+@mixin adaptiveMarginTop($modelSize, $phoneSize) {
+  margin-top: calc(
+    (((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px
+  );
+}
+
+@mixin adaptiveMarginLeft($modelSize, $phoneSize) {
+  margin-left: calc(
+    (((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px
+  );
+}
+
+@mixin adaptiveMarginRight($modelSize, $phoneSize) {
+  margin-right: calc(
+    (((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px
+  );
+}
+
+@mixin adaptiveMargin($top, $right, $bottom, $left, $phoneSize) {
+  @if $top != 0 {
+    margin-top: calc(
+      (((#{$top - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) +
+        #{$phoneSize}px
+    );
+  }
+
+  @if $right != 0 {
+    margin-right: calc(
+      (((#{$right - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) +
+        #{$phoneSize}px
+    );
+  }
+
+  @if $bottom != 0 {
+    margin-bottom: calc(
+      (((#{$bottom - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) +
+        #{$phoneSize}px
+    );
+  }
+
+  @if $left != 0 {
+    margin-left: calc(
+      (((#{$left - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) +
+        #{$phoneSize}px
+    );
+  }
+}
+
+@mixin adaptivePadding($top, $right, $bottom, $left, $phoneSize) {
+  @if $top != 0 {
+    padding-top: calc(
+      (((#{$top - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) +
+        #{$phoneSize}px
+    );
+  }
+
+  @if $right != 0 {
+    padding-right: calc(
+      (((#{$right - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) +
+        #{$phoneSize}px
+    );
+  }
+
+  @if $bottom != 0 {
+    padding-bottom: calc(
+      (((#{$bottom - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) +
+        #{$phoneSize}px
+    );
+  }
+
+  @if $left != 0 {
+    padding-left: calc(
+      (((#{$left - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) +
+        #{$phoneSize}px
+    );
+  }
+}
+
+@mixin adaptivePaddingBottom($modelSize, $phoneSize) {
+  padding-bottom: calc(
+    (((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px
+  );
+}
+
+@mixin adaptivePaddingTop($modelSize, $phoneSize) {
+  padding-top: calc(
+    (((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px
+  );
+}
+
+@mixin adaptivePaddingLeft($modelSize, $phoneSize) {
+  padding-left: calc(
+    (((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px
+  );
+}
+
+@mixin adaptivePaddingRight($modelSize, $phoneSize) {
+  padding-right: calc(
+    (((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px
+  );
+}
+
+@mixin ibg() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@mixin triengel-up($left, $right, $top, $color) {
+  border-left: #{$left}px solid transparent;
+  border-right: #{$right}px solid transparent;
+  border-top: #{$top}px solid $color;
+}
+
+@mixin triengel-down($left, $right, $bottom, $color) {
+  border-left: #{$left}px solid transparent;
+  border-right: #{$right}px solid transparent;
+  border-bottom: #{$bottom}px solid $color;
+}
+
+@mixin triengel-left($top, $bottom, $left, $color) {
+  border-top: #{$top}px solid transparent;
+  border-bottom: #{$bottom}px solid transparent;
+  border-left: #{$left}px solid $color;
+}
+
+@mixin triengel-right($top, $bottom, $right, $color) {
+  border-top: #{$top}px solid transparent;
+  border-bottom: #{$bottom}px solid transparent;
+  border-right: #{$right}px solid $color;
+}
